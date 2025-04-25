@@ -4,8 +4,26 @@ const Home = () => {
 
     const { allCoins, currency} = useContext(CoinContext);
     const [ displayCoin, setDisplayCoin] = useState([])
+    const [ inputValue, setInputValue] = useState("")
 
     console.log("Coins in home:", displayCoin)
+
+    const inputValueChange = (e) => {
+        setInputValue(e.target.value);
+        if(e.target.value == "") {
+            setDisplayCoin(allCoins)
+        }
+    }
+
+    const searchHandler = (e) => {
+        e.preventDefault()
+        const filterInputByNames = allCoins.filter(item => {
+          return item.name.toLowerCase().includes(inputValue.toLowerCase())
+        })
+        console.log("What is searchHandler:", filterInputByNames);
+        setDisplayCoin(filterInputByNames)
+    }
+
 
     useEffect(() => {
         setDisplayCoin(allCoins);
@@ -21,10 +39,16 @@ const Home = () => {
                     Sign up to explore more about cryptos.
                     </p>
 
-                    <form className="flex gap-2">
-                        <input type="text" placeholder="Search Crypto"
-                            className="px-4 py-2 rounded-md"
+                    <form className="flex gap-2" onSubmit={searchHandler}>
+                        <input type="search" list="coinlist" placeholder="Search Crypto"
+                            className="px-4 py-2 rounded-md" value={inputValue}  onChange={inputValueChange}
                         />
+
+                        <datalist id="coinlist">
+                            {allCoins.map((item, index) => {
+                                return <option key={index} value={item.name}/>
+                            })}
+                        </datalist>
                         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md"
                         >
                             Search
@@ -33,7 +57,7 @@ const Home = () => {
                 </div>
 
                 <div className="overflow-x-auto bg-gray-100 m-4 rounded-lg shadow-md">
-                    <table border="1" className="w-full text-sm text-left rtl:text-right bg-white border border-gray-300 rounded-lg">
+                    <table border="1" className="w-full text-sm text-left rtl:text-right bg-white border border-gray-300 rounded-lg p-8">
                         <thead className="bg-gray-200 text-gray-700 uppercase">
                             <tr>
                                 <th scope="col" className="px-6 py-3"> # </th>
