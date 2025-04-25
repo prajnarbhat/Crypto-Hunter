@@ -9,8 +9,9 @@ const App = () =>{
     return (
         <>
             <div>
-            <Navbar/>
+            
             <CoinContextProvider>
+            <Navbar/>
             <Router>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
