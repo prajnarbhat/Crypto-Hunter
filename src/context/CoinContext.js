@@ -30,7 +30,7 @@ export const CoinContextProvider = ({children}) => {
 
     useEffect(() => {
         fetchAllCoins()
-    },[currency])
+    },[currency, fetchAllCoins])
 
     console.log("Currency value is:", currency);
     console.log("Setcurrency is:", setCurrency)

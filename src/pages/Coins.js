@@ -42,7 +42,7 @@ const Coins = () => {
         fetchCoinData();
         fetchHistoryData();
         setLoading(false)
-    },[currency])
+    },[currency, fetchCoinData, fetchHistoryData])
 
     return (
         <>

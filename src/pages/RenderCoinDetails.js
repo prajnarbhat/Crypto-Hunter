@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import CoinContext from "../context/CoinContext";
 import Loader from "../pages/Loader";
 import LineChartData from "./LineChartData";
@@ -7,7 +7,6 @@ const RenderCoinDetails = ({ coinData, historyCoinData }) => {
 
     const { currency } = useContext(CoinContext);
 
-    const [ isLoading, setLoading ] = useState();
     console.log("History data:", historyCoinData)
 
     return (

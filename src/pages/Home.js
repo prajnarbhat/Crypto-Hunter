@@ -10,7 +10,7 @@ const Home = () => {
 
     const inputValueChange = (e) => {
         setInputValue(e.target.value);
-        if(e.target.value == "") {
+        if(e.target.value === "") {
             setDisplayCoin(allCoins)
         }
     }
@@ -23,7 +23,7 @@ const Home = () => {
         console.log("What is searchHandler:", filterInputByNames);
         setDisplayCoin(filterInputByNames)
 
-        if(inputValue == "") {
+        if(inputValue === "") {
             alert("Please enter a cryptocurrency name to search!")
         }
     }
