@@ -5,28 +5,18 @@ import Coins from "../pages/Coins";
 import Home from "../pages/Home";
 import Navbar from "./Navbar";
 
-
-const App = () =>{
+const App = () => {
     return (
-        <>
-            <div>
-            
+        <Router basename="/">
             <CoinContextProvider>
-            <Router  basename="/">
-                <Navbar/>
+                <Navbar />
                 <Routes>
-                    
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/coins/:coinId" element={<Coins/>}/>
-                    
+                    <Route path="/" element={<Home />} />
+                    <Route path="/coins/:coinId" element={<Coins />} />
                 </Routes>
-            </Router>
             </CoinContextProvider>
-            </div>
-        </>
-            
-      
-    )
-}
+        </Router>
+    );
+};
 
 export default App;
