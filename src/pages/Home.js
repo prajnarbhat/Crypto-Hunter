@@ -22,6 +22,10 @@ const Home = () => {
         })
         console.log("What is searchHandler:", filterInputByNames);
         setDisplayCoin(filterInputByNames)
+
+        if(inputValue == "") {
+            alert("Please enter a cryptocurrency name to search!")
+        }
     }
 
 
@@ -41,7 +45,7 @@ const Home = () => {
 
                     <form className="flex gap-2" onSubmit={searchHandler}>
                         <input type="search" list="coinlist" placeholder="Search Crypto"
-                            className="px-4 py-2 rounded-md" value={inputValue}  onChange={inputValueChange}
+                            className="px-4 py-2 rounded-md hover:bg-blue-300 transition-colors duration-200 text-base font-medium" value={inputValue}  onChange={inputValueChange}
                         />
 
                         <datalist id="coinlist">
@@ -49,14 +53,14 @@ const Home = () => {
                                 return <option key={index} value={item.name}/>
                             })}
                         </datalist>
-                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-300 transition-colors duration-200 text-base font-medium"
                         >
                             Search
                         </button>
                     </form>
                 </div>
 
-                <div className="overflow-x-auto bg-gray-100 m-4 rounded-lg shadow-md">
+                <div className="overflow-x-auto bg-gray-100 m-4 rounded-md shadow-md">
                     <table border="1" className="w-full text-sm text-left rtl:text-right bg-white border border-gray-300 rounded-lg p-8">
                         <thead className="bg-gray-200 text-gray-700 uppercase">
                             <tr>
@@ -70,7 +74,8 @@ const Home = () => {
                         <tbody className="w-100 divide-y divide-gray-300">
                             {displayCoin.length > 0 ? (
                                 displayCoin.slice(0,10).map((item,index) => (
-                                    <tr key={index} className="hover:bg-gray-300 transition-colors duration-200">
+                                    <tr key={index} className="hover:bg-blue-300 transition-colors duration-200 text-base font-medium"
+                                    onClick={() => window.location.href = `/coins/${item.id}`}>
                                         <td className="px-6 py-3"> {item.market_cap_rank} </td>
                                         <td className="px-6 py-3"> <img src={item.image} alt="img" className="w-6 h-6 rounded-full"/>
                                             <span className="text-gray-900">{item.name} <span className="uppercase text-gray-500">({item.symbol})</span></span> </td>
