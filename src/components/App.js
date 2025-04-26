@@ -12,8 +12,7 @@ const App = () =>{
             <div>
             
             <CoinContextProvider>
-            
-            <Router>
+            <Router  basename="/">
                 <Navbar/>
                 <Routes>
                     
