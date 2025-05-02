@@ -59,7 +59,7 @@ const Navbar = () => {
                         </Link>
                         </li>
                     </ul>
-                    <select className="text-black p-2 hover:bg-blue-300 transition-colors duration-200 text-base font-medium rounded-md" onChange={currencyHandler}>
+                    <select className="text-black cursor-pointer p-2 hover:bg-blue-300 transition-colors duration-200 text-base font-medium rounded-md" onChange={currencyHandler}>
                         <option value="usd"> USD </option>
                         <option value="inr"> INR </option>
                         <option value="eur"> EUR </option>

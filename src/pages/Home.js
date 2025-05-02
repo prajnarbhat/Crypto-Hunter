@@ -71,7 +71,7 @@ const Home = () => {
                                 <th scope="col" className="px-6 py-3"> Market Cap </th>
                             </tr>
                         </thead>
-                        <tbody className="w-100 divide-y divide-gray-300">
+                        <tbody className="w-100 divide-y cursor-pointer divide-gray-300">
                             {displayCoin.length > 0 ? (
                                 displayCoin.slice(0,10).map((item,index) => (
                                     <tr key={index} className="hover:bg-blue-300 transition-colors duration-200 text-base font-medium"
