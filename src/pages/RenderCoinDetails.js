@@ -60,7 +60,9 @@ const RenderCoinDetails = ({ coinData, historyCoinData }) => {
               </div>
               
             ) : (
+              <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
                 <Loader />
+              </div>
             )}
           
           </div>
