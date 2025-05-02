@@ -11,7 +11,7 @@ const RenderCoinDetails = ({ coinData, historyCoinData }) => {
 
     return (
       <div className="bg-gray-600 min-h-screen flex flex-col items-center">
-        <div className="overflow-x-auto bg-gray-100 m-4 rounded-lg shadow-md"> 
+        <div className=" bg-gray-100 m-4 rounded-lg shadow-md"> 
           <div className="w-full text-sm text-left rtl:text-right bg-white border border-gray-300 rounded-lg p-8">
             
             {coinData ? (
